@@ -36,7 +36,7 @@ pipeline {
             steps {
         withDockerRegistry([ credentialsId: "DOCKER_HUB", url: "https://index.docker.io/v1/" ]) {
           sh  'docker push haribabup279/jenkins:latest'
-          sh  'docker push haribabup279/jenkins:$BUILD_NUMBER'
+          //sh  'docker push haribabup279/jenkins:$BUILD_NUMBER'
         }
                   
           }
@@ -46,7 +46,7 @@ pipeline {
              
             steps 
 			{
-                sh "docker run -d -p 8008:8080 haribabup279/jenkins"
+                sh "docker run -d -p 8008:8080 haribabup279/jenkins:latest"
  
             }
         }
