@@ -47,6 +47,9 @@ pipeline {
             steps 
 			{
                 sh "docker run -d -p 8008:8080 haribabup279/jenkins:latest"
+		sh "sleep 30"
+	        sh "docker ps -a"
+	        sh "curl http://localhost:8008/health"
  
             }
         }
