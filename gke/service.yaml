@@ -1,0 +1,17 @@
+---
+apiVersion: "v1"
+kind: "Service"
+metadata:
+  name: "javaapp-service"
+  namespace: "default"
+  labels:
+    app: "javaapp"
+spec:  
+  ports:
+  - protocol: "TCP"
+    port: 80
+    targetPort: 8080
+  selector:
+    app: "javaapp"
+  type: "LoadBalancer"
+  loadBalancerIP: "34.45.212.220"
